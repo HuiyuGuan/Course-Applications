@@ -1,0 +1,1 @@
+This is the folder where our project will be stored on. I recommend that you finish your work locally before pushing anything into master.
