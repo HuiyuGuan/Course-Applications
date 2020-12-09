@@ -11,7 +11,7 @@ public class Instructor extends Personnel {
     }
 
     public String getName() {
-        return name;
+        return "[Instructor]" + name;
     }
 
 }
