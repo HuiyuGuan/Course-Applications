@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
-import java.io.BufferedWriter;
+import java.util.Collections;
 
 
 public class SchoolSystem {
@@ -147,6 +147,7 @@ public class SchoolSystem {
         Course course = new Sync_Class_Online(className, creditHours, classTime);
         courses.add(course);
         syncOnlineCourses.add(course);
+        Collections.sort(courses );
         System.out.println("Online Synchronous Course successfully added to the School System.");
     }
 
@@ -162,6 +163,7 @@ public class SchoolSystem {
         Course course = new Async_Class_Online(className, creditHours, classInfo);
         courses.add(course);
         asyncOnlineCourses.add(course);
+        Collections.sort(syncOnlineCourses );
         System.out.println("Online Asynchronous Course successfully added to the School System.");
     }
 
@@ -179,6 +181,7 @@ public class SchoolSystem {
         Course course = new Lecture_Only_Class(className, creditHours, classRoomName, classTime);
         courses.add(course);
         lectureOnlyCourses.add(course);
+        Collections.sort(addLectureOnlyCourse);
         System.out.println("Lecture Only Course successfully added to the School System.");
     }
 
@@ -196,6 +199,7 @@ public class SchoolSystem {
         Course course = new Laboratory_Only_Class(className, creditHours, labRoomName, labTime);
         courses.add(course);
         laboratoryOnlyCourses.add(course);
+        Collections.sort(laboratoryOnlyCourses);
         System.out.println("Laboratory Only Course successfully added to the School System.");
     }
 
@@ -217,6 +221,7 @@ public class SchoolSystem {
         Course course = new Hybrid_Class(className, creditHours, classRoomName, labRoomName, classTime, labTime);
         courses.add(course);
         hybridCourses.add(course);
+        Collections.sort(hybridCourses);
         System.out.println("Hybrid Course successfully added to the School System.");
     }
 
@@ -270,6 +275,7 @@ public class SchoolSystem {
         students.add(student);
         writer.println(student.getName());
         writer.close();
+        Collections.sort(students);
         System.out.println("Student successfully added to the School System.");
       //   Scanner s = new Scanner(file);
       //   String list = s.nextLine();
@@ -288,6 +294,7 @@ public class SchoolSystem {
         instructors.add(instructor);
         writer.println(instructor.getName());
         writer.close();
+        Collections.sort(instructors);
         System.out.println("Instructor successfully added to the School System.");
 
 
@@ -299,6 +306,7 @@ public class SchoolSystem {
         String name = sc.next() + sc.nextLine();
         Teaching_Assistant teachingAssistant = new Teaching_Assistant(name);
         teachingAssistants.add(teachingAssistant);
+        Collections.sort(teachingAssistants);
         System.out.println("Teaching Assistant successfully added to the School System.");
     }
 
@@ -308,6 +316,7 @@ public class SchoolSystem {
         String name = sc.next() + sc.nextLine();
         Lab_Technician labTechnician = new Lab_Technician(name);
         labTechnicians.add(labTechnician);
+        Collections.sort(labTechnicians);
         System.out.println("Lab Technician successfully added to the School System.");
     }
 
@@ -317,6 +326,7 @@ public class SchoolSystem {
         String name = sc.next() + sc.nextLine();
         Staff_Member staffMember = new Staff_Member(name);
         staffMembers.add(staffMember);
+        Collections.sort(staffMembers);
         System.out.println("Staff Member successfully added to the School System.");
     }
 
