@@ -148,7 +148,11 @@ public class SchoolSystem {
         Course course = new Sync_Class_Online(className, creditHours, classTime);
         courses.add(course);
         syncOnlineCourses.add(course);
+<<<<<<< HEAD
         Collections.sort(syncOnlineCourses);
+=======
+        Collections.sort(courses );
+>>>>>>> 2d3e3e5f6bda55955d89f173580fa365ec99f640
         System.out.println("Online Synchronous Course successfully added to the School System.");
     }
 
@@ -164,7 +168,11 @@ public class SchoolSystem {
         Course course = new Async_Class_Online(className, creditHours, classInfo);
         courses.add(course);
         asyncOnlineCourses.add(course);
+<<<<<<< HEAD
         Collections.sort(asyncOnlineCourses);
+=======
+        Collections.sort(syncOnlineCourses );
+>>>>>>> 2d3e3e5f6bda55955d89f173580fa365ec99f640
         System.out.println("Online Asynchronous Course successfully added to the School System.");
     }
 
@@ -182,11 +190,19 @@ public class SchoolSystem {
         Course course = new Lecture_Only_Class(className, creditHours, classRoomName, classTime);
         courses.add(course);
         lectureOnlyCourses.add(course);
+<<<<<<< HEAD
         Collections.sort(lectureOnlyCourses);
         System.out.println("Lecture Only Course successfully added to the School System.");
     }
 
     public static void addLaboratoryOnlyCourse (Scanner sc) {
+=======
+        Collections.sort(addLectureOnlyCourse);
+        System.out.println("Lecture Only Course successfully added to the School System.");
+    }
+
+    public static void addLaboratoryOnlyCourse(Scanner sc) {
+>>>>>>> 2d3e3e5f6bda55955d89f173580fa365ec99f640
         System.out.println("-------------------------------------------");
         System.out.print("Enter Course Name: ");
         String className = sc.next();
