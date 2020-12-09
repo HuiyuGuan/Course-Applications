@@ -1,12 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.io.IOException;
-import java.io.BufferedWriter;
-
+import java.util.Collections;
 
 public class SchoolSystem {
 
@@ -22,19 +17,15 @@ public class SchoolSystem {
     private static List<Teaching_Assistant> teachingAssistants = new ArrayList<>();
     private static List<Lab_Technician> labTechnicians = new ArrayList<>();
     private static List<Staff_Member> staffMembers = new ArrayList<>();
-    static File file = new File("School System.txt");
 
-
-
-
-    public static boolean displayMainMenu() throws IOException {
-        System.out.println("\n-------------------------------------------");
+    public static boolean displayMainMenu() {
+        System.out.println("-------------------------------------------");
         System.out.println(" 1. Add a Course");
         System.out.println(" 2. Add a Person");
         System.out.println(" 3. Register for a Course");
         System.out.println(" 4. Assign Personnel to a Course");
         System.out.println(" 5. Display Information");
-		    System.out.println(" 6. Search For Course by Personnel Name");
+		System.out.println(" 6. Search For Course by Personnel Name");
         System.out.println(" 0. Exit Application");
         System.out.println("What would you like to do:");
         System.out.println("-------------------------------------------");
@@ -146,6 +137,7 @@ public class SchoolSystem {
         String classTime = sc.next();
         Course course = new Sync_Class_Online(className, creditHours, classTime);
         courses.add(course);
+Collections.sort(courses );
         syncOnlineCourses.add(course);
         System.out.println("Online Synchronous Course successfully added to the School System.");
     }
@@ -162,6 +154,7 @@ public class SchoolSystem {
         Course course = new Async_Class_Online(className, creditHours, classInfo);
         courses.add(course);
         asyncOnlineCourses.add(course);
+Collections.sort(syncOnlineCourses );
         System.out.println("Online Asynchronous Course successfully added to the School System.");
     }
 
@@ -178,11 +171,12 @@ public class SchoolSystem {
         String classTime = sc.next();
         Course course = new Lecture_Only_Class(className, creditHours, classRoomName, classTime);
         courses.add(course);
+Collections.sort(addLectureOnlyCourse);
         lectureOnlyCourses.add(course);
         System.out.println("Lecture Only Course successfully added to the School System.");
     }
 
-    public static void addLaboratoryOnlyCourse(Scanner sc) {
+    public static void courses.add(course);(Scanner sc) {
         System.out.println("-------------------------------------------");
         System.out.print("Enter Course Name: ");
         String className = sc.next();
@@ -196,6 +190,7 @@ public class SchoolSystem {
         Course course = new Laboratory_Only_Class(className, creditHours, labRoomName, labTime);
         courses.add(course);
         laboratoryOnlyCourses.add(course);
+      Collections.sort(laboratoryOnlyCourses);
         System.out.println("Laboratory Only Course successfully added to the School System.");
     }
 
@@ -217,11 +212,12 @@ public class SchoolSystem {
         Course course = new Hybrid_Class(className, creditHours, classRoomName, labRoomName, classTime, labTime);
         courses.add(course);
         hybridCourses.add(course);
+Collections.sort(hybridCourses);
         System.out.println("Hybrid Course successfully added to the School System.");
     }
 
 
-    public static boolean addAPerson(Scanner sc) throws IOException { //provide options to school to add what kind of person to school
+    public static boolean addAPerson(Scanner sc) { //provide options to school to add what kind of person to school
         System.out.println("-------------------------------------------");
         System.out.println("Choose the type of person you want to add: ");
         System.out.println(" 1. Student");
@@ -259,8 +255,7 @@ public class SchoolSystem {
         return goon;
     }
 
-    public static void addStudent(Scanner sc) throws IOException {
-        PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+    public static void addStudent(Scanner sc) {
         System.out.println("-------------------------------------------");
         System.out.print("Enter student's full name: ");
         String name = sc.next() + sc.nextLine();
@@ -268,29 +263,18 @@ public class SchoolSystem {
         int id = sc.nextInt();
         Student student = new Student(name, id);
         students.add(student);
-        writer.println(student.getName());
-        writer.close();
+Collections.sort(students);
         System.out.println("Student successfully added to the School System.");
-      //   Scanner s = new Scanner(file);
-      //   String list = s.nextLine();
-      //   while (s.hasNextLine()) {
-      //       students.add(new Student(s.nextLine(), 0));
-      // }
-      // s.close();
-      }
+    }
 
-    public static void addInstructor(Scanner sc) throws IOException {
-        PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+    public static void addInstructor(Scanner sc) {
         System.out.println("-------------------------------------------");
         System.out.print("Enter instructor's full name: ");
         String name = sc.next() + sc.nextLine();
         Instructor instructor = new Instructor(name);
         instructors.add(instructor);
-        writer.println(instructor.getName());
-        writer.close();
+Collections.sort(instructors);
         System.out.println("Instructor successfully added to the School System.");
-
-
     }
 
     public static void addTeachingAssistant(Scanner sc) {
@@ -299,6 +283,7 @@ public class SchoolSystem {
         String name = sc.next() + sc.nextLine();
         Teaching_Assistant teachingAssistant = new Teaching_Assistant(name);
         teachingAssistants.add(teachingAssistant);
+Collections.sort(teachingAssistants);
         System.out.println("Teaching Assistant successfully added to the School System.");
     }
 
@@ -308,6 +293,7 @@ public class SchoolSystem {
         String name = sc.next() + sc.nextLine();
         Lab_Technician labTechnician = new Lab_Technician(name);
         labTechnicians.add(labTechnician);
+Collections.sort(labTechnicians);
         System.out.println("Lab Technician successfully added to the School System.");
     }
 
@@ -317,6 +303,7 @@ public class SchoolSystem {
         String name = sc.next() + sc.nextLine();
         Staff_Member staffMember = new Staff_Member(name);
         staffMembers.add(staffMember);
+Collections.sort(staffMembers);
         System.out.println("Staff Member successfully added to the School System.");
     }
 
@@ -619,20 +606,31 @@ public class SchoolSystem {
 
 
     public static void displayStudents() {
-      System.out.println("-------------------------------------------");
-      System.out.print("Students: ");
-          for (int i = 0; i < students.size(); i++) {
-                  System.out.print(students.get(i).getName().substring(9) + ", ");
-              }
-          }
+        System.out.println("-------------------------------------------");
+        String studentList = "Students: [";
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getName() != null) {
+                studentList += students.get(i).getName() + ", ";
+            }
+        }
+        if (students.size() == 0) {
+            studentList += "  ";
+        }
+        System.out.println(studentList + "\b\b]");
+    }
 
     public static void displayInstructors() {
         System.out.println("-------------------------------------------");
-        System.out.print("Instructors: ");
+        String InstructorList = "Instructors: [";
         for (int i = 0; i < instructors.size(); i++) {
-                System.out.print(instructors.get(i).getName().substring(12) + ", ");
+            if (instructors.get(i).getName() != null) {
+                InstructorList += instructors.get(i).getName() + ", ";
             }
-
+        }
+        if (instructors.size() == 0) {
+            InstructorList += "  ";
+        }
+        System.out.println(InstructorList + "\b\b]");
     }
 
     public static void displayTeacherAssistants() {
@@ -660,7 +658,7 @@ public class SchoolSystem {
         if (labTechnicians.size() == 0) {
             labTechnicianList += "  ";
         }
-        System.out.println(labTechnicianList);
+        System.out.println(labTechnicianList + "\b\b]");
     }
 
     public static void displayStaffMembers() {
@@ -787,29 +785,8 @@ public class SchoolSystem {
                 }
             }
         } catch (Exception e) {
-            String msg = "There are no courses that the personnel member is a part of.";
-            throw new NullPointerException(msg);
+            System.out.println("ERROR");
         }
         return result;
     }
-
-
-  public static void readFromFile() throws IOException {
-    Scanner s = new Scanner(file);
-    while (s.hasNextLine()) {
-      String list = s.nextLine();
-      if (list.contains("[Student]")) {
-    students.add(new Student(list.substring(9), 0));
-}
-      if (list.contains("[Instructor]")) {
-        instructors.add(new Instructor(list.substring(12)));
-      }
-
-}
-
-
-  s.close();
-
-}
-
 }
