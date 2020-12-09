@@ -1,6 +1,6 @@
 public class Student extends Person {
 
-    private String name;
+    private String name = null;
     private int id;
     private final int CREDIT_LIMIT = 18;
     private int currentCredits;
@@ -15,8 +15,12 @@ public class Student extends Person {
     }
 
     public String getName() {
-        return name;
+        return "[Student]" + name;
     }
+
+    // public String toString() {
+    //     return "[Student]" + getName();
+
 
     public int getId() {
         return id;
