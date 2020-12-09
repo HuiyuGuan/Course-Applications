@@ -25,7 +25,7 @@ public class SchoolSystem {
         System.out.println(" 3. Register for a Course");
         System.out.println(" 4. Assign Personnel to a Course");
         System.out.println(" 5. Display Information");
-		System.out.println(" 6. Search For Course by Personnel Name");
+		    System.out.println(" 6. Search For Course by Personnel Name");
         System.out.println(" 0. Exit Application");
         System.out.println("What would you like to do:");
         System.out.println("-------------------------------------------");
@@ -50,7 +50,7 @@ public class SchoolSystem {
             case "5":
                 displayInformation(sc);
                 break;
-			case "6":
+	      		case "6":
                 try {
                     searchForCourseByName(sc);
                 } catch (NullPointerException e) {
@@ -123,6 +123,7 @@ public class SchoolSystem {
         Course course = new Face_to_Face_Class(className, creditHours, classRoomName, classTime);
         courses.add(course);
         faceToFaceCourses.add(course);
+        Collections.sort(faceToFaceCourses);
         System.out.println("Face To Face Course successfully added to the School System.");
     }
 
@@ -137,8 +138,8 @@ public class SchoolSystem {
         String classTime = sc.next();
         Course course = new Sync_Class_Online(className, creditHours, classTime);
         courses.add(course);
-Collections.sort(courses );
         syncOnlineCourses.add(course);
+        Collections.sort(syncOnlineCourses);
         System.out.println("Online Synchronous Course successfully added to the School System.");
     }
 
@@ -154,7 +155,7 @@ Collections.sort(courses );
         Course course = new Async_Class_Online(className, creditHours, classInfo);
         courses.add(course);
         asyncOnlineCourses.add(course);
-Collections.sort(syncOnlineCourses );
+        Collections.sort(asyncOnlineCourses);
         System.out.println("Online Asynchronous Course successfully added to the School System.");
     }
 
@@ -171,12 +172,12 @@ Collections.sort(syncOnlineCourses );
         String classTime = sc.next();
         Course course = new Lecture_Only_Class(className, creditHours, classRoomName, classTime);
         courses.add(course);
-Collections.sort(addLectureOnlyCourse);
         lectureOnlyCourses.add(course);
+        Collections.sort(lectureOnlyCourses);
         System.out.println("Lecture Only Course successfully added to the School System.");
     }
 
-    public static void courses.add(course);(Scanner sc) {
+    public static void addLaboratoryOnlyCourse (Scanner sc) {
         System.out.println("-------------------------------------------");
         System.out.print("Enter Course Name: ");
         String className = sc.next();
@@ -190,7 +191,7 @@ Collections.sort(addLectureOnlyCourse);
         Course course = new Laboratory_Only_Class(className, creditHours, labRoomName, labTime);
         courses.add(course);
         laboratoryOnlyCourses.add(course);
-      Collections.sort(laboratoryOnlyCourses);
+        Collections.sort(laboratoryOnlyCourses);
         System.out.println("Laboratory Only Course successfully added to the School System.");
     }
 
@@ -212,7 +213,7 @@ Collections.sort(addLectureOnlyCourse);
         Course course = new Hybrid_Class(className, creditHours, classRoomName, labRoomName, classTime, labTime);
         courses.add(course);
         hybridCourses.add(course);
-Collections.sort(hybridCourses);
+        Collections.sort(hybridCourses);
         System.out.println("Hybrid Course successfully added to the School System.");
     }
 
@@ -263,7 +264,7 @@ Collections.sort(hybridCourses);
         int id = sc.nextInt();
         Student student = new Student(name, id);
         students.add(student);
-Collections.sort(students);
+        Collections.sort(students);
         System.out.println("Student successfully added to the School System.");
     }
 
@@ -273,7 +274,7 @@ Collections.sort(students);
         String name = sc.next() + sc.nextLine();
         Instructor instructor = new Instructor(name);
         instructors.add(instructor);
-Collections.sort(instructors);
+        Collections.sort(instructors);
         System.out.println("Instructor successfully added to the School System.");
     }
 
@@ -283,7 +284,7 @@ Collections.sort(instructors);
         String name = sc.next() + sc.nextLine();
         Teaching_Assistant teachingAssistant = new Teaching_Assistant(name);
         teachingAssistants.add(teachingAssistant);
-Collections.sort(teachingAssistants);
+        Collections.sort(teachingAssistants);
         System.out.println("Teaching Assistant successfully added to the School System.");
     }
 
@@ -293,7 +294,7 @@ Collections.sort(teachingAssistants);
         String name = sc.next() + sc.nextLine();
         Lab_Technician labTechnician = new Lab_Technician(name);
         labTechnicians.add(labTechnician);
-Collections.sort(labTechnicians);
+        Collections.sort(labTechnicians);
         System.out.println("Lab Technician successfully added to the School System.");
     }
 
@@ -303,7 +304,7 @@ Collections.sort(labTechnicians);
         String name = sc.next() + sc.nextLine();
         Staff_Member staffMember = new Staff_Member(name);
         staffMembers.add(staffMember);
-Collections.sort(staffMembers);
+        Collections.sort(staffMembers);
         System.out.println("Staff Member successfully added to the School System.");
     }
 
@@ -789,4 +790,10 @@ Collections.sort(staffMembers);
         }
         return result;
     }
+
+
+
+
+
+
 }

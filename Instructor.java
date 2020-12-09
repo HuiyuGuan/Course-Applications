@@ -1,4 +1,4 @@
-public class Instructor extends Personnel {
+public class Instructor extends Personnel implements Comparable<Instructor>{
 
     private String name;
 
@@ -13,5 +13,7 @@ public class Instructor extends Personnel {
     public String getName() {
         return "[Instructor]" + name;
     }
-
+    public int compareTo(Instructor instructors) {
+       return name.compareTo(instructors.name);
+    }
 }

@@ -1,4 +1,4 @@
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student>{
 
     private String name = null;
     private int id;
@@ -37,5 +37,7 @@ public class Student extends Person {
     public void addCredits(int creditHours) {
         this.currentCredits += creditHours;
     }
-
+    public int compareTo(Student students ) {
+       return name.compareTo(students.name);
+    }
 }

@@ -1,4 +1,4 @@
-public class Course {
+public class Course implements Comparable<Course>{
     private String className;
     private int creditHours;
     private Student[] studentsInCourse;
@@ -51,10 +51,10 @@ public class Course {
     public int getCreditHours() {
         return creditHours;
     }
-    
+
     public String getLabRoomName() {
         return labRoomName;
-    }//    
+    }//
 
     public int getStudentEnrollmentCounter() {
         return studentEnrollmentCounter;
@@ -181,7 +181,7 @@ public class Course {
         this.staffMembersInCourse[staffMemberEnrollmentCounter] = staffMember;
         staffMemberEnrollmentCounter++;
     }
-    
+
     public boolean hasLaboratory(){
         if(getLabRoomName()!= null){
             return true;
@@ -189,8 +189,10 @@ public class Course {
             return false;
         }
     }//
+    public int compareTo(Course course) {
+       return className.compareTo(course.className);
+    }
 
-    
-    
+
 
 }
