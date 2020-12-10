@@ -1,10 +1,8 @@
-public class Instructor extends Personnel implements Comparable<Instructor>{
+abstract class Instructor extends Personnel implements Comparable<Instructor>{
 
     private String name;
 
-    public Instructor() {
-
-    }
+  
 
     public Instructor(String name) {
         this.name = name;
