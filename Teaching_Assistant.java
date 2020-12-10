@@ -1,4 +1,4 @@
-public class Teaching_Assistant extends Personnel implements Comparable<Teaching_Assistant>{
+abstract class Teaching_Assistant extends Personnel implements Comparable<Teaching_Assistant>{
 	private String name;
 
 	public Teaching_Assistant(String name){
