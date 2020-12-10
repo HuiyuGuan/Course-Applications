@@ -1,13 +1,11 @@
-public class Student extends Person implements Comparable<Student>{
+abstract class Student extends Person implements Comparable<Student>{
 
     private String name = null;
     private int id;
     private final int CREDIT_LIMIT = 18;
     private int currentCredits;
 
-    public Student() {
-
-    }
+  
 
     public Student(String name, int id) {
         this.name = name;
