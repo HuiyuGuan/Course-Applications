@@ -931,9 +931,5 @@ public class SchoolSystem {
      fis.close();
      fos.close();
 }
-<<<<<<< HEAD
-=======
-//s.close();
 
->>>>>>> fefbe49aeca0d2024074a4e6e5532e6104f0fe66
 }
