@@ -819,6 +819,7 @@ public class SchoolSystem {
       }
 
 }
+   s.close();
 }
       public static void copyFile() throws IOException {
       FileInputStream fis = new FileInputStream("School System.txt");
