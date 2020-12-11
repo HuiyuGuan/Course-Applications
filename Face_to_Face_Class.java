@@ -52,11 +52,10 @@ public class Face_to_Face_Class extends Course {
             staffMembersList += "  ";
         }
 
-        return "Course Information: \nCourse Type: Face To Face \nCourse Name: " + getClassName() +
-                "\nCredit Hours: " + getCreditHours() +
-                "\nInstructor(s): " + instructorList + "\b\b]" + "\nTeaching Assistant(s): " + teachingAssistantsList
-                + "\b\b]" + "\nStaff Member(s): " + staffMembersList + "\b\b]" +
-                "\nEnrollment: " + getStudentEnrollmentCounter() + "/" + getStudentCapacity() +
-                "\n-------------------------------------------\n";
+        return "[FaceToFace]Course Information: Course Type: Face to Face " + "Course Name: " + getClassName() +
+                ", Credit Hours: " + getCreditHours() +
+                ", Instructor(s): " + instructorList + "\b\b]" + ", Teaching Assistant(s): " + teachingAssistantsList
+                + "\b\b]" + ", Staff Member(s): " + staffMembersList + "\b\b]" +
+                ", Enrollment: " + getStudentEnrollmentCounter() + "/" + getStudentCapacity();
     }
 }

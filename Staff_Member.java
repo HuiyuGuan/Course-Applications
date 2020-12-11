@@ -1,4 +1,4 @@
-class Staff_Member extends Personnel implements Comparable<Staff_Member>{
+public class Staff_Member extends Personnel implements Comparable<Staff_Member>{
     private String name;
 
     public Staff_Member(String name){
@@ -7,7 +7,7 @@ class Staff_Member extends Personnel implements Comparable<Staff_Member>{
 
 
     public String getName(){
-        return name;
+        return "[StaffMember]" +  name;
     }
     public int compareTo(Staff_Member staffMembers) {
        return name.compareTo(staffMembers.name);

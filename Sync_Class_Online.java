@@ -46,11 +46,11 @@ public class Sync_Class_Online extends Course {
             staffMembersList += "  ";
         }
 
-        return "Course Information: \nCourse Type: Online Synchronous" +
-                " \nCourse Name: " + getClassName() + "\nCredit Hours: " + getCreditHours() +
-                "\nClass Time: " + classTime + "\nInstructor(s): " + instructorList + "\b\b]" +
-                "\nTeaching Assistant(s): " + teachingAssistantsList + "\b\b]" + "\nStaff Member(s): " +
-                staffMembersList + "\b\b]" + "\nEnrollment: " + getStudentEnrollmentCounter() + "/" +
-                getStudentCapacity() + "\n-------------------------------------------\n";
+        return "[Synchronous]Course Information: Course Type: Online Synchronous" +
+                ", Course Name: " + getClassName() + ", Credit Hours: " + getCreditHours() +
+                ", Class Time: " + classTime + ", Instructor(s): " + instructorList + "\b\b]" +
+                ", Teaching Assistant(s): " + teachingAssistantsList + "\b\b]" + ", Staff Member(s): " +
+                staffMembersList + "\b\b]" + " Enrollment: " + getStudentEnrollmentCounter() + "/" +
+                getStudentCapacity();
     }
 }

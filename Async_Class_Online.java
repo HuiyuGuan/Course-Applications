@@ -46,11 +46,10 @@ public class Async_Class_Online extends Course {
             staffMembersList += "  ";
         }
 
-        return "Course Information: \nCourse Type: Online Asynchronous" +
-                " \nCourse Name: " + getClassName() + "\nCredit Hours: " + getCreditHours() +
-                "\nClass Information: " + classInfo + "\nInstructor(s): " + instructorList + "\b\b]" +
-                "\nTeaching Assistant(s): " + teachingAssistantsList + "\b\b]" + "\nStaff Member(s): " +
-                staffMembersList + "\b\b]" + "\nEnrollment: " + getStudentEnrollmentCounter() + "/" +
-                getStudentCapacity() + "\n-------------------------------------------\n";
+        return "[Asynchronous]" + getClassName() + getCreditHours() +
+                ", Class Information: " + classInfo + ", Instructor(s): " + instructorList + "\b\b]" +
+                ", Teaching Assistant(s): " + teachingAssistantsList + "\b\b]" + ", Staff Member(s): " +
+                staffMembersList + "\b\b]" + ", Enrollment: " + getStudentEnrollmentCounter() + "/" +
+                getStudentCapacity();
     }
 }

@@ -1,4 +1,4 @@
-class Student extends Person implements Comparable<Student>{
+public class Student extends Person implements Comparable<Student>{
 
     private String name = null;
     private int id;

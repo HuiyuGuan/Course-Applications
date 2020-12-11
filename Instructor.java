@@ -1,4 +1,4 @@
-class Instructor extends Personnel implements Comparable<Instructor>{
+public class Instructor extends Personnel implements Comparable<Instructor>{
 
     private String name;
 
