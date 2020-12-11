@@ -873,5 +873,4 @@ public static void copyFile1() throws IOException {
      fis.close();
      fos.close();
 }
-//s.close();
 }
