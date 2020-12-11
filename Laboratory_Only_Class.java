@@ -20,7 +20,7 @@ public class Laboratory_Only_Class extends Course {
     public String getClassTime() {
         return labTime;
     }
-    
+
 
     public String toString() {
         String labTechnicianList = "[";
@@ -53,13 +53,11 @@ public class Laboratory_Only_Class extends Course {
             staffMembersList += "  ";
         }
 
-        return "Course Information: \nCourse Type: Laboratory Only" +
-                " \nCourse Name: " + getClassName() + "\nCredit Hours: " + getCreditHours() +
-                "\nLaboratory Location: " + labRoomName + "\nLab Time: " + labTime +
-                "\nLab Technician(s): " + labTechnicianList + "\b\b]" + "\nTeaching Assistant(s): " + teachingAssistantsList
-                + "\b\b]" + "\nStaff Member(s): " + staffMembersList + "\b\b]" +
-                "\nEnrollment: " + getStudentEnrollmentCounter() + "/" + getStudentCapacity() +
-                "\n-------------------------------------------\n";
+        return "[LaboratoryOnly]" + getClassName() + ", Credit Hours: " + getCreditHours() +
+                ", Laboratory Location: " + labRoomName + ", Lab Time: " + labTime +
+                ", Lab Technician(s): " + labTechnicianList + "\b\b]" + ", Teaching Assistant(s): " + teachingAssistantsList
+                + "\b\b]" + ", Staff Member(s): " + staffMembersList + "\b\b]" +
+                ", Enrollment: " + getStudentEnrollmentCounter() + "/" + getStudentCapacity();
     }
 
 }

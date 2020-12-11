@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.Collections;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 
 public class SchoolSystem {
@@ -278,12 +280,7 @@ public class SchoolSystem {
         writer.close();
         Collections.sort(students);
         System.out.println("Student successfully added to the School System.");
-      //   Scanner s = new Scanner(file);
-      //   String list = s.nextLine();
-      //   while (s.hasNextLine()) {
-      //       students.add(new Student(s.nextLine(), 0));
-      // }
-      // s.close();
+
       }
 
     public static void addInstructor(Scanner sc) throws IOException {
@@ -301,33 +298,42 @@ public class SchoolSystem {
 
     }
 
-    public static void addTeachingAssistant(Scanner sc) {
+    public static void addTeachingAssistant(Scanner sc) throws IOException {
         System.out.println("-------------------------------------------");
         System.out.print("Enter teaching assistants's full name: ");
         String name = sc.next() + sc.nextLine();
         Teaching_Assistant teachingAssistant = new Teaching_Assistant(name);
         teachingAssistants.add(teachingAssistant);
         Collections.sort(teachingAssistants);
+        PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+        writer.println(teachingAssistant.getName());
+        writer.close();
         System.out.println("Teaching Assistant successfully added to the School System.");
     }
 
-    public static void addLabTechnician(Scanner sc) {
+    public static void addLabTechnician(Scanner sc) throws IOException {
         System.out.println("-------------------------------------------");
         System.out.print("Enter lab technician's full name: ");
         String name = sc.next() + sc.nextLine();
         Lab_Technician labTechnician = new Lab_Technician(name);
         labTechnicians.add(labTechnician);
         Collections.sort(labTechnicians);
+        PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+        writer.println(labTechnician.getName());
+        writer.close();
         System.out.println("Lab Technician successfully added to the School System.");
     }
 
-    public static void addStaffMember(Scanner sc) {
+    public static void addStaffMember(Scanner sc) throws IOException {
         System.out.println("-------------------------------------------");
         System.out.print("Enter staff member's full name: ");
         String name = sc.next() + sc.nextLine();
         Staff_Member staffMember = new Staff_Member(name);
         staffMembers.add(staffMember);
         Collections.sort(staffMembers);
+        PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+        writer.println(staffMember.getName());
+        writer.close();
         System.out.println("Staff Member successfully added to the School System.");
     }
 
@@ -545,7 +551,7 @@ public class SchoolSystem {
         return result;
     }
 
-    public static boolean displayInformation(Scanner sc) {
+    public static boolean displayInformation(Scanner sc) throws IOException {
         System.out.println("-------------------------------------------");
         System.out.println(" 1. Students");
         System.out.println(" 2. Instructors");
@@ -647,67 +653,67 @@ public class SchoolSystem {
     }
 
     public static void displayTeacherAssistants() {
-        System.out.println("-------------------------------------------");
-        String TeacherAssistantList = "Teacher Assistants: [";
-        for (int i = 0; i < teachingAssistants.size(); i++) {
-            if (teachingAssistants.get(i).getName() != null) {
-                TeacherAssistantList += teachingAssistants.get(i).getName() + ", ";
-            }
-        }
-        if (teachingAssistants.size() == 0) {
-            TeacherAssistantList += "  ";
-        }
-        System.out.println(TeacherAssistantList + "\b\b]");
+         System.out.println("-------------------------------------------");
+         for (int i = 0; i < teachingAssistants.size(); i++) {
+                 System.out.println(teachingAssistants.get(i).getName().substring(19) + ", ");
+
+     }
+
+   }
+
+     public static void displayLabTechnicians() {
+         System.out.println("-------------------------------------------");
+         for (int i = 0; i < labTechnicians.size(); i++) {
+                 System.out.println(labTechnicians.get(i).getName().substring(9) + ", ");
+
+     }
+     }
+
+     public static void displayStaffMembers() {
+         System.out.println("-------------------------------------------");
+         for (int i = 0; i < staffMembers.size(); i++) {
+                 System.out.println(staffMembers.get(i).getName().substring(14) + ", ");
+
+     }
+     }
+
+    public static void displayFaceToFaceCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      Scanner scan = new Scanner(file);
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[FaceToFace]")) {
+          System.out.println(list);
     }
 
-    public static void displayLabTechnicians() {
-        System.out.println("-------------------------------------------");
-        String labTechnicianList = "Lab Technicians: [";
-        for (int i = 0; i < labTechnicians.size(); i++) {
-            if (labTechnicians.get(i).getName() != null) {
-                labTechnicianList += labTechnicians.get(i).getName() + ", ";
-            }
-        }
-        if (labTechnicians.size() == 0) {
-            labTechnicianList += "  ";
-        }
-        System.out.println(labTechnicianList);
+  }
+}
+
+    public static void displaySyncOnlineCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      Scanner scan = new Scanner(file);
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[Synchronous]")) {
+          System.out.println(list);
     }
 
-    public static void displayStaffMembers() {
-        System.out.println("-------------------------------------------");
-        String staffMemberList = "Staff Members: [";
-        for (int i = 0; i < staffMembers.size(); i++) {
-            if (staffMembers.get(i).getName() != null) {
-                staffMemberList += staffMembers.get(i).getName() + ", ";
-            }
-        }
-        if (staffMembers.size() == 0) {
-            staffMemberList += "  ";
-        }
-        System.out.println(staffMemberList + "\b\b]");
+  }
+
+}
+
+    public static void displayAsyncOnlineCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      Scanner scan = new Scanner(file);
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[Asynchronous]")) {
+          System.out.println(list);
     }
 
-    public static void displayFaceToFaceCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < faceToFaceCourses.size(); i++) {
-            System.out.print(faceToFaceCourses.get(i).toString());
-        }
-    }
+  }
 
-    public static void displaySyncOnlineCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < syncOnlineCourses.size(); i++) {
-            System.out.print(syncOnlineCourses.get(i).toString());
-        }
-    }
-
-    public static void displayAsyncOnlineCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < asyncOnlineCourses.size(); i++) {
-            System.out.print(asyncOnlineCourses.get(i).toString());
-        }
-    }
+}
 
     public static void displayLectureOnlyCourses() {
         System.out.println("-------------------------------------------");
@@ -716,21 +722,33 @@ public class SchoolSystem {
         }
     }
 
-    public static void displayLaboratoryOnlyCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < laboratoryOnlyCourses.size(); i++) {
-            System.out.print(laboratoryOnlyCourses.get(i).toString());
-        }
+    public static void displayLaboratoryOnlyCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      Scanner scan = new Scanner(file);
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[LaboratoryOnly]")) {
+          System.out.println(list);
     }
 
-    public static void displayHybridCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < hybridCourses.size(); i++) {
-            System.out.print(hybridCourses.get(i).toString());
-        }
+  }
+
+}
+
+    public static void displayHybridCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      Scanner scan = new Scanner(file);
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[HybridClass]")) {
+          System.out.println(list);
     }
 
-    public static void displayAllCourses() {
+  }
+
+}
+
+    public static void displayAllCourses() throws IOException {
         displayFaceToFaceCourses();
         displaySyncOnlineCourses();
         displayAsyncOnlineCourses();
@@ -805,22 +823,114 @@ public class SchoolSystem {
     }
 
 
-  public static void readFromFile() throws IOException {
-    Scanner s = new Scanner(file);
-    while (s.hasNextLine()) {
-      String list = s.nextLine();
-      if (list.contains("[Student]")) {
-    students.add(new Student(list.substring(9), 0));
-}
-      if (list.contains("[Instructor]")) {
-        instructors.add(new Instructor(list.substring(12)));
+
+    public static void writeToFile() throws IOException {
+
+      PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+
+      for (int i = 0; i < faceToFaceCourses.size(); i++) {
+        writer.println(faceToFaceCourses.get(i).toString());
+      }
+      for (int i = 0; i < syncOnlineCourses.size(); i++) {
+        writer.println(syncOnlineCourses.get(i).toString());
+      }
+      for (int i = 0; i < asyncOnlineCourses.size(); i++) {
+        writer.println(asyncOnlineCourses.get(i).toString());
+      }
+      for (int i = 0; i < lectureOnlyCourses.size(); i++) {
+        writer.println(lectureOnlyCourses.get(i).toString());
+      }
+      for (int i = 0; i < laboratoryOnlyCourses.size(); i++) {
+        writer.println(laboratoryOnlyCourses.get(i).toString());
+      }
+      for (int i = 0; i < hybridCourses.size(); i++) {
+        writer.println(hybridCourses.get(i).toString());
       }
 
+      writer.close();
+    }
+
+
+      public static void readFromFile() throws IOException {
+        Scanner scan = new Scanner(file);
+        while (scan.hasNextLine()) {
+          String list = scan.nextLine();
+          if (list.contains("[Student]")) {
+        students.add(new Student(list.substring(9), 0));
+          }
+          if (list.contains("[Instructor]")) {
+            instructors.add(new Instructor(list.substring(12)));
+          }
+          if (list.contains("[LabTech]")) {
+            labTechnicians.add(new Lab_Technician(list.substring(9)));
+          }
+          if (list.contains("[TeachingAssistant]")) {
+            teachingAssistants.add(new Teaching_Assistant(list.substring(19)));
+          }
+          if (list.contains("[StaffMember]")) {
+            staffMembers.add(new Staff_Member(list.substring(13)));
+          }
+
+    }
+
+
+      scan.close();
+
+    }
+
+    public static void copyFile() throws IOException {
+     FileInputStream fis = new FileInputStream("School System.txt");
+     FileOutputStream fos = new FileOutputStream("SchoolSystem_1.txt");
+     byte[] temp = new byte[fis.available()];
+     int b;
+     for (int i = 0; i < temp.length; i++) {
+      b = fis.read();
+      temp[i] = (byte)b;
+}
+      fos.write(temp);
+      fis.close();
+      fos.close();
 }
 
-
-  s.close();
-
+    public static void copyFile1() throws IOException {
+     FileInputStream fis = new FileInputStream("SchoolSystem_1.txt");
+     FileOutputStream fos = new FileOutputStream("SchoolSystem_2.txt");
+      byte[] temp = new byte[fis.available()];
+      int b;
+    for (int i = 0; i < temp.length; i++) {
+     b = fis.read();
+    temp[i] = (byte)b;
 }
+    fos.write(temp);
+    fis.close();
+    fos.close();
+}
+    public static void copyFile2() throws IOException {
+    FileInputStream fis = new FileInputStream("SchoolSystem_2.txt");
+    FileOutputStream fos = new FileOutputStream("SchoolSystem_3.txt");
+     byte[] temp = new byte[fis.available()];
+      int b;
+     for (int i = 0; i < temp.length; i++) {
+     b = fis.read();
+     temp[i] = (byte)b;
+}
+    fos.write(temp);
+    fis.close();
+    fos.close();
+}
+   public static void copyFile3() throws IOException {
+    FileInputStream fis = new FileInputStream("SchoolSystem_3.txt");
+    FileOutputStream fos = new FileOutputStream("SchoolSystem_4.txt");
+    byte[] temp = new byte[fis.available()];
+    int b;
+    for (int i = 0; i < temp.length; i++) {
+     b = fis.read();
+    temp[i] = (byte)b;
+}
+     fos.write(temp);
+     fis.close();
+     fos.close();
+}
+//s.close();
 
 }

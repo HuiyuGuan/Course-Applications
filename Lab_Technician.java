@@ -1,4 +1,4 @@
-abstract class Lab_Technician extends Personnel implements Comparable<Lab_Technician>{
+public class Lab_Technician extends Personnel implements Comparable<Lab_Technician>{
 	private String name;
 
 	public Lab_Technician(String name){
@@ -6,7 +6,7 @@ abstract class Lab_Technician extends Personnel implements Comparable<Lab_Techni
 	}
 
 	public String getName(){
-		return name;
+		return "[LabTech]" +  name;
 	}
 	public int compareTo(Lab_Technician labTechnicians) {
 		 return name.compareTo(labTechnicians.name);

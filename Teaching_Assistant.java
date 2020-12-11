@@ -1,4 +1,4 @@
-abstract class Teaching_Assistant extends Personnel implements Comparable<Teaching_Assistant>{
+public class Teaching_Assistant extends Personnel implements Comparable<Teaching_Assistant>{
 	private String name;
 
 	public Teaching_Assistant(String name){
@@ -7,7 +7,7 @@ abstract class Teaching_Assistant extends Personnel implements Comparable<Teachi
 
 
 	public String getName(){
-		return name;
+		return "[TeachingAssistant]" + name;
 	}
 	public int compareTo(Teaching_Assistant teachingAssistants) {
 		 return name.compareTo(teachingAssistants.name);

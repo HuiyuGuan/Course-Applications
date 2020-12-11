@@ -28,7 +28,11 @@ public class Hybrid_Class extends Course {
     public String getClassTime() {
         return classTime;
     }
-    
+
+    public String getLabTime() {
+      return labTime;
+    }
+
 
     public String toString() {
         String instructorList = "[";
@@ -71,14 +75,13 @@ public class Hybrid_Class extends Course {
             staffMembersList += "  ";
         }
 
-        return "Course Information: \nCourse Type: Hybrid (Lecture and Laboratory)" +
-                " \nCourse Name: " + getClassName() + "\nCredit Hours: " + getCreditHours() +
-                "\nClassroom Location: " + classRoomName + "\nClass Time: " + classTime +
-                "\nLaboratory Location: " + labRoomName + "\nLab Time: " + labTime +
-                "\nInstructor(s): " + instructorList + "\b\b]" + "\nLab Technician(s): " + labTechnicianList +
-                "\b\b]" + "\nTeaching Assistant(s): " + teachingAssistantsList +
-                "\b\b]" + "\nStaff Member(s): " + staffMembersList + "\b\b]" +
-                "\nEnrollment: " + getStudentEnrollmentCounter() + "/" + getStudentCapacity() +
-                "\n-------------------------------------------\n";
+        return "[HybridClass]Course Information: Course Type: Hybrid (Lecture and Laboratory)" +
+                ", Course Name: " + getClassName() + ", Credit Hours: " + getCreditHours() +
+                ", Classroom Location: " + classRoomName + ", Class Time: " + classTime +
+                ", Laboratory Location: " + labRoomName + ", Lab Time: " + labTime +
+                ", Instructor(s): " + instructorList + "\b\b]" + ", Lab Technician(s): " + labTechnicianList +
+                "\b\b]" + ", Teaching Assistant(s): " + teachingAssistantsList +
+                "\b\b]" + ", Staff Member(s): " + staffMembersList + "\b\b]" +
+                ", Enrollment: " + getStudentEnrollmentCounter() + "/" + getStudentCapacity();
     }
 }
