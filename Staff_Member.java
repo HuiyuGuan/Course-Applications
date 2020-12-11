@@ -1,4 +1,4 @@
-abstract class Staff_Member extends Personnel implements Comparable<Staff_Member>{
+class Staff_Member extends Personnel implements Comparable<Staff_Member>{
     private String name;
 
     public Staff_Member(String name){

@@ -11,7 +11,11 @@ public class Main {
         SchoolSystem school1 = new SchoolSystem();
         school1.readFromFile();
         File file = new File("School System.txt");
-        Scanner scan = new Scanner(file);
+        school1.copyFile();
+        school1.copyFile1();
+        school1.copyFile2();
+        school1.copyFile3();
+      Scanner scan = new Scanner(file);
         while (scan.hasNextLine()) {
           System.out.println(scan.nextLine());
         }

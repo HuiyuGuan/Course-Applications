@@ -1,4 +1,4 @@
-abstract class Lab_Technician extends Personnel implements Comparable<Lab_Technician>{
+class Lab_Technician extends Personnel implements Comparable<Lab_Technician>{
 	private String name;
 
 	public Lab_Technician(String name){
