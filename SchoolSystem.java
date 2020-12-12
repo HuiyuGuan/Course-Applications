@@ -821,5 +821,58 @@ public class SchoolSystem {
   s.close();
 
 }
+    public static void copyFile() throws IOException {
+     FileInputStream fis = new FileInputStream("School System.txt");
+     FileOutputStream fos = new FileOutputStream("SchoolSystem_1.txt");
+     byte[] temp = new byte[fis.available()];
+     int b;
+     for (int i = 0; i < temp.length; i++) {
+      b = fis.read();
+      temp[i] = (byte)b;
+}
+      fos.write(temp);
+      fis.close();
+      fos.close();
+}
+
+    public static void copyFile1() throws IOException {
+     FileInputStream fis = new FileInputStream("SchoolSystem_1.txt");
+     FileOutputStream fos = new FileOutputStream("SchoolSystem_2.txt");
+      byte[] temp = new byte[fis.available()];
+      int b;
+    for (int i = 0; i < temp.length; i++) {
+     b = fis.read();
+    temp[i] = (byte)b;
+}
+    fos.write(temp);
+    fis.close();
+    fos.close();
+}
+    public static void copyFile2() throws IOException {
+    FileInputStream fis = new FileInputStream("SchoolSystem_2.txt");
+    FileOutputStream fos = new FileOutputStream("SchoolSystem_3.txt");
+     byte[] temp = new byte[fis.available()];
+      int b;
+     for (int i = 0; i < temp.length; i++) {
+     b = fis.read();
+     temp[i] = (byte)b;
+}
+    fos.write(temp);
+    fis.close();
+    fos.close();
+}
+   public static void copyFile3() throws IOException {
+    FileInputStream fis = new FileInputStream("SchoolSystem_3.txt");
+    FileOutputStream fos = new FileOutputStream("SchoolSystem_4.txt");
+    byte[] temp = new byte[fis.available()];
+    int b;
+    for (int i = 0; i < temp.length; i++) {
+     b = fis.read();
+    temp[i] = (byte)b;
+}
+     fos.write(temp);
+     fis.close();
+     fos.close();
+}
 
 }
