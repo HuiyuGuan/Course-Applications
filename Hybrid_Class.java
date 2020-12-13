@@ -4,6 +4,7 @@ public class Hybrid_Class extends Course {
     private String labRoomName;
     private String classTime;
     private String labTime;
+    private String textInfo;
 
     public Hybrid_Class() {
         super();
@@ -16,6 +17,15 @@ public class Hybrid_Class extends Course {
         this.classTime = classTime;
         this.labTime = labTime;
     }
+
+    public Hybrid_Class(String textInfo) {
+      this.textInfo = textInfo;
+    }
+
+    public String getTextInfo() {
+          return "[Hybrid]" + textInfo;
+        }
+
 
     public String getClassRoomName() {
         return classRoomName;
@@ -75,7 +85,7 @@ public class Hybrid_Class extends Course {
             staffMembersList += "  ";
         }
 
-        return "[HybridClass]Course Information: Course Type: Hybrid (Lecture and Laboratory)" +
+        return "[Hybrid]Course Type: Hybrid (Lecture and Laboratory)" +
                 ", Course Name: " + getClassName() + ", Credit Hours: " + getCreditHours() +
                 ", Classroom Location: " + classRoomName + ", Class Time: " + classTime +
                 ", Laboratory Location: " + labRoomName + ", Lab Time: " + labTime +

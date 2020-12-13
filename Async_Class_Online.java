@@ -1,6 +1,7 @@
 public class Async_Class_Online extends Course {
 
     private String classInfo;
+    private String textInfo;
 
     public Async_Class_Online() {
         super();
@@ -9,6 +10,14 @@ public class Async_Class_Online extends Course {
     public Async_Class_Online(String className, int creditHours, String classInfo) {
         super(className, creditHours);
         this.classInfo = classInfo;
+    }
+
+    public Async_Class_Online(String textInfo) {
+      this.textInfo = textInfo;
+    }
+
+    public String getTextInfo() {
+          return "[Async]" + textInfo;
     }
 
     public String getClassInfo() {
@@ -46,7 +55,8 @@ public class Async_Class_Online extends Course {
             staffMembersList += "  ";
         }
 
-        return "[Asynchronous]" + getClassName() + getCreditHours() +
+        return "[Async]Course Type: Online Asynchronous" +
+                ", Course Name: " + getClassName() + ", Credit Hours: " + getCreditHours() +
                 ", Class Information: " + classInfo + ", Instructor(s): " + instructorList + "\b\b]" +
                 ", Teaching Assistant(s): " + teachingAssistantsList + "\b\b]" + ", Staff Member(s): " +
                 staffMembersList + "\b\b]" + ", Enrollment: " + getStudentEnrollmentCounter() + "/" +

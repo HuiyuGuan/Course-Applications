@@ -2,6 +2,7 @@ public class Face_to_Face_Class extends Course {
 
     private String classRoomName;
     private String classTime;
+    private String textInfo;
 
     public Face_to_Face_Class() {
         super();
@@ -11,6 +12,15 @@ public class Face_to_Face_Class extends Course {
         super(className, creditHours);
         this.classRoomName = classRoomName;
         this.classTime = classTime;
+    }
+
+    public Face_to_Face_Class(String textInfo) {
+      this.textInfo = textInfo; // string that allows scanner to read an entire line of info to initialize new array for course
+    }
+    
+
+    public String getTextInfo() {
+      return "[FaceToFace]" + textInfo;
     }
 
     public String getClassRoomName() {
@@ -52,7 +62,7 @@ public class Face_to_Face_Class extends Course {
             staffMembersList += "  ";
         }
 
-        return "[FaceToFace]Course Information: Course Type: Face to Face " + "Course Name: " + getClassName() +
+        return "[FaceToFace]Course Information: Course Type: Face to Face, " + "Course Name: " + getClassName() +
                 ", Credit Hours: " + getCreditHours() +
                 ", Instructor(s): " + instructorList + "\b\b]" + ", Teaching Assistant(s): " + teachingAssistantsList
                 + "\b\b]" + ", Staff Member(s): " + staffMembersList + "\b\b]" +

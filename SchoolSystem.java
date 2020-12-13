@@ -6,7 +6,8 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.Collections;
-
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 public class SchoolSystem {
 
@@ -17,6 +18,13 @@ public class SchoolSystem {
     private static List<Course> lectureOnlyCourses = new ArrayList<>();
     private static List<Course> laboratoryOnlyCourses = new ArrayList<>();
     private static List<Course> hybridCourses = new ArrayList<>();
+    private static List<Course> tempFaceToFaceCourses = new ArrayList<>();
+    private static List<Course> tempSyncOnlineCourses = new ArrayList<>();
+    private static List<Course> tempAsyncOnlineCourses = new ArrayList<>();
+    private static List<Course> tempLectureOnlyCourses = new ArrayList<>();
+    private static List<Course> tempLaboratoryOnlyCourses = new ArrayList<>();
+    private static List<Course> tempHybridCourses = new ArrayList<>();
+
     private static List<Student> students = new ArrayList<>();
     private static List<Instructor> instructors = new ArrayList<>();
     private static List<Teaching_Assistant> teachingAssistants = new ArrayList<>();
@@ -132,6 +140,9 @@ public class SchoolSystem {
         Course course = new Face_to_Face_Class(className, creditHours, classRoomName, classTime);
         courses.add(course);
         faceToFaceCourses.add(course);
+        // PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+        // writer.println(course.toString());
+        // writer.close();
         Collections.sort(faceToFaceCourses);
         System.out.println("Face To Face Course successfully added to the School System.");
     }
@@ -148,6 +159,9 @@ public class SchoolSystem {
         Course course = new Sync_Class_Online(className, creditHours, classTime);
         courses.add(course);
         syncOnlineCourses.add(course);
+        // PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+        // writer.println(course.toString());
+        // writer.close();
         Collections.sort(syncOnlineCourses);
         System.out.println("Online Synchronous Course successfully added to the School System.");
     }
@@ -164,6 +178,9 @@ public class SchoolSystem {
         Course course = new Async_Class_Online(className, creditHours, classInfo);
         courses.add(course);
         asyncOnlineCourses.add(course);
+        // PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+        // writer.println(course.toString());
+        // writer.close();
         Collections.sort(asyncOnlineCourses);
         System.out.println("Online Asynchronous Course successfully added to the School System.");
     }
@@ -200,6 +217,9 @@ public class SchoolSystem {
         Course course = new Laboratory_Only_Class(className, creditHours, labRoomName, labTime);
         courses.add(course);
         laboratoryOnlyCourses.add(course);
+        // PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+        // writer.println(course.toString());
+        // writer.close();
         Collections.sort(laboratoryOnlyCourses);
         System.out.println("Laboratory Only Course successfully added to the School System.");
     }
@@ -222,6 +242,9 @@ public class SchoolSystem {
         Course course = new Hybrid_Class(className, creditHours, classRoomName, labRoomName, classTime, labTime);
         courses.add(course);
         hybridCourses.add(course);
+        // PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+        // writer.println(course.toString());
+        // writer.close();
         Collections.sort(hybridCourses);
         System.out.println("Hybrid Course successfully added to the School System.");
     }
@@ -278,12 +301,6 @@ public class SchoolSystem {
         writer.close();
         Collections.sort(students);
         System.out.println("Student successfully added to the School System.");
-      //   Scanner s = new Scanner(file);
-      //   String list = s.nextLine();
-      //   while (s.hasNextLine()) {
-      //       students.add(new Student(s.nextLine(), 0));
-      // }
-      // s.close();
       }
 
     public static void addInstructor(Scanner sc) throws IOException {
@@ -293,7 +310,7 @@ public class SchoolSystem {
         String name = sc.next() + sc.nextLine();
         Instructor instructor = new Instructor(name);
         instructors.add(instructor);
-        writer.println(instructor.getName());
+        writer.println(instructor.toString());
         writer.close();
         Collections.sort(instructors);
         System.out.println("Instructor successfully added to the School System.");
@@ -301,35 +318,44 @@ public class SchoolSystem {
 
     }
 
-    public static void addTeachingAssistant(Scanner sc) {
+    public static void addTeachingAssistant(Scanner sc) throws IOException {
         System.out.println("-------------------------------------------");
         System.out.print("Enter teaching assistants's full name: ");
         String name = sc.next() + sc.nextLine();
         Teaching_Assistant teachingAssistant = new Teaching_Assistant(name);
         teachingAssistants.add(teachingAssistant);
         Collections.sort(teachingAssistants);
+        PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+        writer.println(teachingAssistant.getName());
+        writer.close();
         System.out.println("Teaching Assistant successfully added to the School System.");
     }
 
-    public static void addLabTechnician(Scanner sc) {
-        System.out.println("-------------------------------------------");
-        System.out.print("Enter lab technician's full name: ");
-        String name = sc.next() + sc.nextLine();
-        Lab_Technician labTechnician = new Lab_Technician(name);
-        labTechnicians.add(labTechnician);
-        Collections.sort(labTechnicians);
-        System.out.println("Lab Technician successfully added to the School System.");
-    }
+    public static void addLabTechnician(Scanner sc) throws IOException {
+          System.out.println("-------------------------------------------");
+          System.out.print("Enter lab technician's full name: ");
+          String name = sc.next() + sc.nextLine();
+          Lab_Technician labTechnician = new Lab_Technician(name);
+          labTechnicians.add(labTechnician);
+          Collections.sort(labTechnicians);
+          PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+          writer.println(labTechnician.getName());
+          writer.close();
+          System.out.println("Lab Technician successfully added to the School System.");
+      }
 
-    public static void addStaffMember(Scanner sc) {
-        System.out.println("-------------------------------------------");
-        System.out.print("Enter staff member's full name: ");
-        String name = sc.next() + sc.nextLine();
-        Staff_Member staffMember = new Staff_Member(name);
-        staffMembers.add(staffMember);
-        Collections.sort(staffMembers);
-        System.out.println("Staff Member successfully added to the School System.");
-    }
+      public static void addStaffMember(Scanner sc) throws IOException {
+            System.out.println("-------------------------------------------");
+            System.out.print("Enter staff member's full name: ");
+            String name = sc.next() + sc.nextLine();
+            Staff_Member staffMember = new Staff_Member(name);
+            staffMembers.add(staffMember);
+            Collections.sort(staffMembers);
+            PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+            writer.println(staffMember.getName());
+            writer.close();
+            System.out.println("Staff Member successfully added to the School System.");
+        }
 
     public static boolean assignPersonnel(Scanner sc) {
         System.out.println("-------------------------------------------");
@@ -545,89 +571,88 @@ public class SchoolSystem {
         return result;
     }
 
-    public static boolean displayInformation(Scanner sc) {
-        System.out.println("-------------------------------------------");
-        System.out.println(" 1. Students");
-        System.out.println(" 2. Instructors");
-        System.out.println(" 3. Teacher Assistants");
-        System.out.println(" 4. Lab Technicians");
-        System.out.println(" 5. Staff Members");
-        System.out.println(" 6. Face to Face");
-        System.out.println(" 7. Synchronous Online");
-        System.out.println(" 8. Asynchronous Online");
-        System.out.println(" 9. Lecture Only");
-        System.out.println(" 10. Laboratory Only");
-        System.out.println(" 11. Hybrid (Lecture and Laboratory)");
-        System.out.println(" 12. Display All People");
-        System.out.println(" 13. Display All Courses");
-        System.out.println(" 14. Display Everything");
-        System.out.println("Select the Information you want to display: ");
-        System.out.println("-------------------------------------------");
-        String user = sc.nextLine();
-        boolean goon = true;
-        switch (user) {
-            case "1":
-                displayStudents();
-                goon = false;
-                break;
-            case "2":
-                displayInstructors();
-                goon = false;
-                break;
-            case "3":
-                displayTeacherAssistants();
-                goon = false;
-                break;
-            case "4":
-                displayLabTechnicians();
-                goon = false;
-                break;
-            case "5":
-                displayStaffMembers();
-                goon = false;
-                break;
-            case "6":
-                displayFaceToFaceCourses();
-                goon = false;
-                break;
-            case "7":
-                displaySyncOnlineCourses();
-                goon = false;
-                break;
-            case "8":
-                displayAsyncOnlineCourses();
-                goon = false;
-                break;
-            case "9":
-                displayLectureOnlyCourses();
-                goon = false;
-                break;
-            case "10":
-                displayLaboratoryOnlyCourses();
-                goon = false;
-                break;
-            case "11":
-                displayHybridCourses();
-                goon = false;
-                break;
-            case "12":
-                displayAllPeople();
-                goon = false;
-                break;
-            case "13":
-                displayAllCourses();
-                goon = false;
-                break;
-            case "14":
-                displayAllPeople();
-                displayAllCourses();
-                goon = false;
-                break;
-            default:
-        }
-        return goon;
-    }
-
+    public static boolean displayInformation(Scanner sc) throws IOException {
+         System.out.println("-------------------------------------------");
+         System.out.println(" 1. Students");
+         System.out.println(" 2. Instructors");
+         System.out.println(" 3. Teacher Assistants");
+         System.out.println(" 4. Lab Technicians");
+         System.out.println(" 5. Staff Members");
+         System.out.println(" 6. Face to Face");
+         System.out.println(" 7. Synchronous Online");
+         System.out.println(" 8. Asynchronous Online");
+         System.out.println(" 9. Lecture Only");
+         System.out.println(" 10. Laboratory Only");
+         System.out.println(" 11. Hybrid (Lecture and Laboratory)");
+         System.out.println(" 12. Display All People");
+         System.out.println(" 13. Display All Courses");
+         System.out.println(" 14. Display Everything");
+         System.out.println("Select the Information you want to display: ");
+         System.out.println("-------------------------------------------");
+         String user = sc.nextLine();
+         boolean goon = true;
+         switch (user) {
+             case "1":
+                 displayStudents();
+                 goon = false;
+                 break;
+             case "2":
+                 displayInstructors();
+                 goon = false;
+                 break;
+             case "3":
+                 displayTeacherAssistants();
+                 goon = false;
+                 break;
+             case "4":
+                 displayLabTechnicians();
+                 goon = false;
+                 break;
+             case "5":
+                 displayStaffMembers();
+                 goon = false;
+                 break;
+             case "6":
+                 displayFaceToFaceCourses();
+                 goon = false;
+                 break;
+             case "7":
+                 displaySyncOnlineCourses();
+                 goon = false;
+                 break;
+             case "8":
+                 displayAsyncOnlineCourses();
+                 goon = false;
+                 break;
+             case "9":
+                 displayLectureOnlyCourses();
+                 goon = false;
+                 break;
+             case "10":
+                 displayLaboratoryOnlyCourses();
+                 goon = false;
+                 break;
+             case "11":
+                 displayHybridCourses();
+                 goon = false;
+                 break;
+             case "12":
+                 displayAllPeople();
+                 goon = false;
+                 break;
+             case "13":
+                 displayAllCourses();
+                 goon = false;
+                 break;
+             case "14":
+                 displayAllPeople();
+                 displayAllCourses();
+                 goon = false;
+                 break;
+             default:
+         }
+         return goon;
+     }
 
     public static void displayStudents() {
       System.out.println("-------------------------------------------");
@@ -641,7 +666,7 @@ public class SchoolSystem {
         System.out.println("-------------------------------------------");
         System.out.print("Instructors: ");
         for (int i = 0; i < instructors.size(); i++) {
-                System.out.print(instructors.get(i).getName().substring(12) + ", ");
+                System.out.print(instructors.get(i).toString().substring(12) + ", ");
             }
 
     }
@@ -688,26 +713,52 @@ public class SchoolSystem {
         System.out.println(staffMemberList + "\b\b]");
     }
 
-    public static void displayFaceToFaceCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < faceToFaceCourses.size(); i++) {
-            System.out.print(faceToFaceCourses.get(i).toString());
-        }
+    public static void displayFaceToFaceCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      Scanner scan = new Scanner(file);
+      for (int i = 0; i < faceToFaceCourses.size(); i++) {
+        System.out.print(faceToFaceCourses.get(i).toString().substring(12) + ", ");
+      }
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[FaceToFace]")) {
+          System.out.println(list.substring(12));
     }
 
-    public static void displaySyncOnlineCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < syncOnlineCourses.size(); i++) {
-            System.out.print(syncOnlineCourses.get(i).toString());
-        }
+  }
+}
+
+    public static void displaySyncOnlineCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      for (int i = 0; i < syncOnlineCourses.size(); i++) {
+        System.out.print(syncOnlineCourses.get(i).toString().substring(6) + ", ");
+      }
+      Scanner scan = new Scanner(file);
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[Sync]")) {
+          System.out.println(list.substring(6));
     }
 
-    public static void displayAsyncOnlineCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < asyncOnlineCourses.size(); i++) {
-            System.out.print(asyncOnlineCourses.get(i).toString());
-        }
+  }
+
+}
+
+    public static void displayAsyncOnlineCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      for (int i = 0; i < asyncOnlineCourses.size(); i++) {
+        System.out.print(asyncOnlineCourses.get(i).toString().substring(7) + ", ");
+      }
+      Scanner scan = new Scanner(file);
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[Async]")) {
+          System.out.println(list.substring(7));
     }
+
+  }
+
+}
 
     public static void displayLectureOnlyCourses() {
         System.out.println("-------------------------------------------");
@@ -716,21 +767,38 @@ public class SchoolSystem {
         }
     }
 
-    public static void displayLaboratoryOnlyCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < laboratoryOnlyCourses.size(); i++) {
-            System.out.print(laboratoryOnlyCourses.get(i).toString());
-        }
+    public static void displayLaboratoryOnlyCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      for (int i = 0; i < laboratoryOnlyCourses.size(); i++) {
+        System.out.print(laboratoryOnlyCourses.get(i).toString().substring(8) + ", ");
+      }
+      Scanner scan = new Scanner(file);
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[LabOnly]")) {
+          System.out.println(list.substring(8));
     }
 
-    public static void displayHybridCourses() {
-        System.out.println("-------------------------------------------");
-        for (int i = 0; i < hybridCourses.size(); i++) {
-            System.out.print(hybridCourses.get(i).toString());
-        }
+  }
+
+}
+
+    public static void displayHybridCourses() throws IOException {
+      System.out.println("-------------------------------------------");
+      for (int i = 0; i < hybridCourses.size(); i++) {
+        System.out.print(hybridCourses.get(i).toString().substring(8) + ", ");
+      }
+      Scanner scan = new Scanner(file);
+      while (scan.hasNextLine()) {
+        String list = scan.nextLine();
+        if (list.contains("[Hybrid]")) {
+          System.out.println(list.substring(8));
     }
 
-    public static void displayAllCourses() {
+  }
+
+}
+    public static void displayAllCourses() throws IOException {
         displayFaceToFaceCourses();
         displaySyncOnlineCourses();
         displayAsyncOnlineCourses();
@@ -739,7 +807,7 @@ public class SchoolSystem {
         displayHybridCourses();
     }
 
-    public static void displayAllPeople() {
+    public static void displayAllPeople() throws IOException {
         displayStudents();
         displayInstructors();
         displayTeacherAssistants();
@@ -803,6 +871,32 @@ public class SchoolSystem {
         return result;
     }
 
+    public static void writeToFile() throws IOException {
+
+     PrintWriter writer = new PrintWriter(new FileWriter(file, true));
+
+     for (int i = 0; i < faceToFaceCourses.size(); i++) {
+       writer.println(faceToFaceCourses.get(i).toString());
+     }
+     for (int i = 0; i < syncOnlineCourses.size(); i++) {
+       writer.println(syncOnlineCourses.get(i).toString());
+     }
+     for (int i = 0; i < asyncOnlineCourses.size(); i++) {
+       writer.println(asyncOnlineCourses.get(i).toString());
+     }
+     for (int i = 0; i < lectureOnlyCourses.size(); i++) {
+       writer.println(lectureOnlyCourses.get(i).toString());
+     }
+     for (int i = 0; i < laboratoryOnlyCourses.size(); i++) {
+       writer.println(laboratoryOnlyCourses.get(i).toString());
+     }
+     for (int i = 0; i < hybridCourses.size(); i++) {
+       writer.println(hybridCourses.get(i).toString());
+     }
+
+     writer.close();
+   }
+
 
   public static void readFromFile() throws IOException {
     Scanner s = new Scanner(file);
@@ -814,6 +908,37 @@ public class SchoolSystem {
       if (list.contains("[Instructor]")) {
         instructors.add(new Instructor(list.substring(12)));
       }
+      if (list.contains("[LabTech]")) {
+           labTechnicians.add(new Lab_Technician(list.substring(9)));
+         }
+         if (list.contains("[TeachingAssistant]")) {
+           teachingAssistants.add(new Teaching_Assistant(list.substring(19)));
+         }
+         if (list.contains("[StaffMember]")) {
+           staffMembers.add(new Staff_Member(list.substring(13)));
+         }
+
+      // if (list.contains("[FaceToFace]")) {
+      //   faceToFaceCourses.add(new Face_to_Face_Class(list.substring(12)));
+      //   courses.add(new Course(list.substring(12)));
+      // }
+      // if (list.contains("[LabOnly]")) {
+      //   laboratoryOnlyCourses.add(new Laboratory_Only_Class(list.substring(8)));
+      //   courses.add(new Course(list.substring(8)));
+      // }
+      // if (list.contains("[Async]")) {
+      //   asyncOnlineCourses.add(new Async_Class_Online(list.substring(7)));
+      //   courses.add(new Course(list.substring(7)));
+      // }
+      // if (list.contains("[Sync]")) {
+      //   syncOnlineCourses.add(new Sync_Class_Online(list.substring(6)));
+      //   courses.add(new Course(list.substring(6)));
+      // }
+      // if (list.contains("[Hybrid]")) {
+      //   hybridCourses.add(new Hybrid_Class(list.substring(8)));
+      //   courses.add(new Course(list.substring(8)));
+      // }
+
 
 }
 

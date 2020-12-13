@@ -1,6 +1,7 @@
 public class Sync_Class_Online extends Course {
 
     private String classTime;
+    private String textInfo;
 
     public Sync_Class_Online() {
         super();
@@ -10,6 +11,14 @@ public class Sync_Class_Online extends Course {
         super(className, creditHours);
         this.classTime = classTime;
     }
+
+    public Sync_Class_Online(String textInfo) {
+      this.textInfo = textInfo;
+    }
+
+    public String getTextInfo() {
+          return "[Sync]" + textInfo;
+        }
 
     public String getClassTime() {
         return classTime;
@@ -46,7 +55,7 @@ public class Sync_Class_Online extends Course {
             staffMembersList += "  ";
         }
 
-        return "[Synchronous]Course Information: Course Type: Online Synchronous" +
+        return "[Sync]Course Type: Online Synchronous" +
                 ", Course Name: " + getClassName() + ", Credit Hours: " + getCreditHours() +
                 ", Class Time: " + classTime + ", Instructor(s): " + instructorList + "\b\b]" +
                 ", Teaching Assistant(s): " + teachingAssistantsList + "\b\b]" + ", Staff Member(s): " +

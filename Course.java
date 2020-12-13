@@ -1,6 +1,7 @@
 public class Course implements Comparable<Course>{
     private String className;
     private int creditHours;
+    private String textInfo;
     private Student[] studentsInCourse;
     private int studentCapacity;
     private int studentEnrollmentCounter;
@@ -44,6 +45,10 @@ public class Course implements Comparable<Course>{
         this.labRoomName = labRoomName;//
     }
 
+    public Course(String textInfo) {
+      this.textInfo = textInfo;
+    }
+
     public String getClassName() {
         return className;
     }
@@ -55,6 +60,10 @@ public class Course implements Comparable<Course>{
     public String getLabRoomName() {
         return labRoomName;
     }//
+
+    public String getTextInfo() {
+      return textInfo;
+    }
 
     public int getStudentEnrollmentCounter() {
         return studentEnrollmentCounter;

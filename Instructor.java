@@ -9,6 +9,10 @@ public class Instructor extends Personnel implements Comparable<Instructor>{
     }
 
     public String getName() {
+        return name;
+    }
+
+    public String toString() {
         return "[Instructor]" + name;
     }
     public int compareTo(Instructor instructors) {

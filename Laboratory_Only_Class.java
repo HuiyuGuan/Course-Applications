@@ -2,6 +2,7 @@ public class Laboratory_Only_Class extends Course {
 
     private String labRoomName;
     private String labTime;
+    private String textInfo;
 
     public Laboratory_Only_Class() {
         super();
@@ -12,6 +13,14 @@ public class Laboratory_Only_Class extends Course {
         this.labRoomName = labRoomName;
         this.labTime = labTime;
     }
+
+    public Laboratory_Only_Class(String textInfo) {
+      this.textInfo = textInfo;
+    }
+
+    public String getTextInfo() {
+          return "[LabOnly]" + textInfo;
+        }
 
     public String getLabRoomName() {
         return labRoomName;
@@ -53,7 +62,8 @@ public class Laboratory_Only_Class extends Course {
             staffMembersList += "  ";
         }
 
-        return "[LaboratoryOnly]" + getClassName() + ", Credit Hours: " + getCreditHours() +
+        return "[LabOnly]Course Type: Laboratory Only" +
+                ", Course Name: " + getClassName() + ", Credit Hours: " + getCreditHours() +
                 ", Laboratory Location: " + labRoomName + ", Lab Time: " + labTime +
                 ", Lab Technician(s): " + labTechnicianList + "\b\b]" + ", Teaching Assistant(s): " + teachingAssistantsList
                 + "\b\b]" + ", Staff Member(s): " + staffMembersList + "\b\b]" +

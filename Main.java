@@ -22,10 +22,10 @@ public class Main {
         while (scan.hasNextLine()) {
           System.out.println(scan.nextLine());
         }
+        scan.close();
         boolean canContinue = true;
         while (canContinue)
             canContinue = school1.displayMainMenu();
-            scan.close();
             school1.writeToFile();
           } catch(IOException e) {
             System.out.println("File not found");
